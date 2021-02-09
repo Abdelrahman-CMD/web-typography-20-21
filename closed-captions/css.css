@@ -5,6 +5,12 @@ Show them when they receive the class 'on'
 Hide them when they receive the class 'off'
 Feel free to adjust the defaults to your needs.
 ********************************************** */
+
+#closed-captions{
+display: flex;
+justify-content: center;
+}
+
 #closed-captions p {
 	opacity: 0;
 	transition: .05s;
@@ -29,32 +35,44 @@ The first paragraph, with extended timing for
 	spoken.
 You probably want to change the styling.
 ********************************************** */
+.center{
+margin-left: auto;
+margin-right: auto;
+display: block;
+margin-top:6%;
+}
 .p0 span {
 	opacity: 0;
 	font-family: brenner;
+	font-size: 5em;
 }
 .p0.on span:first-of-type {
 	opacity: 1;
 	transition: 0s;
 	font-weight: 200;
+	font-size: 2em;
+	background-color: blue;
 }
 .p0.on span:nth-of-type(2) {
 	opacity: 1;
 	transition: 0s .4s;
 	margin-right: -.25em;
 	font-weight: 400;
+	background-color: orange;
 }
 .p0.on span:nth-of-type(3) {
 	opacity: 1;
 	transition: 0s .5s;
 	margin-right: -.25em;
 	font-weight: 600;
+	background-color: green;
 }
 .p0.on span:nth-of-type(4) {
 	opacity: 1;
 	transition: 0s .7s;
 	margin-right: -.25em;
 	font-weight: 800;
+	background-color: red;
 }
 .p0.on span:nth-of-type(5) {
 	opacity: 1;
@@ -93,7 +111,17 @@ You probably want to change the styling.
 	opacity: 1;
 	transition: 0s 3.7s;
 	font-family: "brenner slab";
+	background-color: salmon;
 }
+
+.p1.on span:nth-of-type(1) {
+	opacity: 1;
+	transition: 0s 3.7s;
+	font-family: "brenner slab";
+	color: darkkhaki;
+	font-size: 22em;
+}
+
 
 /* **********************************************
 Sounds.
@@ -104,7 +132,30 @@ Sounds.
 
 /* The moment the class .sound1 is added to the body, the background is yellow */
 .sound1 {
-	background: yellow;
+	background: crimson;
+}
+
+.sound2 {
+	background: cyan;
+}
+.sound3 {
+	background: grey;
+}
+.sound4 {
+	background: green;
+}
+.sound5 {
+	background:yellow;
+}
+.sound6 {
+	background:palevioletred;
+}
+.sound7 {
+	background:brown;
+}
+.sound7{
+	background: cornflowerblue;
+
 }
 
 iframe {
@@ -113,4 +164,40 @@ iframe {
 /* The moment the class .sound1 is added to the body, the movie makes a turn */
 .sound1 iframe {
 	transform: rotate(1turn);
+}
+.sound2 iframe {
+	transform: rotate(3turn);
+}
+
+.sound3 iframe{
+	transform: scale(1, 0.5);
+	animation-duration: scale 3s;
+}
+
+@keyframes scale {
+	0% {
+	  transform: scale(1, 0.5);
+	}
+	100% {
+	  transform: scale(-1, -0.5);
+	}
+  }
+
+  .sound4 iframe {
+	transform:rotate(2turn);
+}
+
+.sound4 iframe{
+	animation-duration: 2s;
+	animation-name: iframe;
+	animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes iframe {
+	0%   { transform: scale(1,1)      translateY(0); }
+	10%  { transform: scale(1.1,.9)   translateY(0); }
+	30%  { transform: scale(.9,1.1)   translateY(-100px); }
+	50%  { transform: scale(1.05,.95) translateY(0); }
+	57%  { transform: scale(1,1)      translateY(-7px); }
+	64%  { transform: scale(1,1)      translateY(0); }
+	100% { transform: scale(1,1)      translateY(0); }
 }
